@@ -5,21 +5,21 @@ from thomas import thomas
 
 def edo2(p, q, f, h, a, b, y0, yn):
     """
-    Metodo de Diferencias Divididas que da solucion a la ecuacion
+    Metodo de Diferencias Divididas que da solucion a la ecuacion diferencial
     y'' = p(x)y'(x) + q(x)y(x) + f(x) en un intervalo [a, b]
     :param p: String con la funcion que multiplica al y'(t) en la ecuacion,
-              debe estar en termino de "x"
+              debe estar en terminos de "x"
     :param q: String con la funcion que multiplica al y(t) en la ecuacion,
-              debe estar en termino de "x"
-    :param f: String con la funcion f(x) mostrada en la ecuacion,
-              debe estar en termino de "x"
+              debe estar en terminos de "x"
+    :param f: String con la funcion f(x) mostrada en la ecuacion diferencial,
+              debe estar en terminos de "x"
     :param h: Numero positivo, corresponde al tamaño de paso
     :param a: Numero que corresponde al extremo inferior del intervalo [a, b]
     :param b: Numero que corresponde al extremo superior del intervalo [a, b]
     :param y0: Numero que corresponde al valor inicial en x = a
     :param yn: Numero que corresponde al valor inicial en x = b
-    :return: Vector columna "x" y vector columna "y" que dan solucion al sistema,
-             ambos son Numpy Matrix
+    :return: Listas de Python, vector columna "x" y vector columna "y"
+             que dan solucion a la ecuacion diferencial
     """
     if h < 0:
         return "El tamaño de paso h debe ser un numero positivo"
@@ -72,7 +72,7 @@ def edo2(p, q, f, h, a, b, y0, yn):
             e0 = ((h / 2) * pi + 1) * y0
             matriz_b[i, 0] = di + e0
 
-        # Caso especial i = n - 1
+        # Caso especial ultimo elemento
         if i == n - 1:
             en = ((-h / 2) * pi + 1) * yn
             matriz_b[i, 0] = di + en
@@ -84,4 +84,4 @@ def edo2(p, q, f, h, a, b, y0, yn):
     # Con las matrices A y b, se procede a encontrar la solucion del sistema A y = b
     y = thomas(matriz_A, matriz_b)
 
-    return soporte, y.tolist()
+    return soporte, y

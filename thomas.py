@@ -3,10 +3,14 @@ import numpy as np
 
 def thomas(A, b):
     """
-    Algoritmo de Thomas para resolver un sistema A x = b para matrices tridiagonales
-    :param A: Numpy Matrix, donde A es una matriz tridiagonal invertible de tamaño n x n
-    :param b: Numpy Matrix, donde b es un vector columna de tamaño n
-    :return: Numpy Matrix, donde x es un vector columna de tamaño n que resuelve el sistema Ax=b
+    Algoritmo de Thomas para resolver un sistema A x = b
+    para matrices tridiagonales
+    :param A: Lista de Python, donde A es una matriz
+              tridiagonal invertible de tamaño n x n
+    :param b: Lista de Python, donde b es un vector
+              columna de tamaño n
+    :return: Lista de Python, vector columna "x" de tamaño
+             n que resuelve el sistema: A x = b
     """
     A = np.matrix(A)
     b = np.matrix(b)
@@ -61,4 +65,4 @@ def thomas(A, b):
         xi = q_i - p_i * x_i1
         x.insert(0, [xi])
 
-    return np.matrix(x)
+    return x
