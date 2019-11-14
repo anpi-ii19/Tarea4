@@ -35,7 +35,7 @@ def edo2(p, q, f, h, a, b, y0, yn):
     soporte = []
     # Se construye el conjunto soporte
     while t <= b - h:
-        soporte.append(t)
+        soporte.append([t])
         t += h
 
     n = len(soporte)
@@ -44,7 +44,7 @@ def edo2(p, q, f, h, a, b, y0, yn):
 
     # Se construye la matriz tridiagonal matriz_A y el vector columna b
     for i in range(0, n):
-        si = soporte[i]
+        si = soporte[i][0]
         pi = p(si)
         qi = q(si)
         fi = f(si)
@@ -84,4 +84,4 @@ def edo2(p, q, f, h, a, b, y0, yn):
     # Con las matrices A y b, se procede a encontrar la solucion del sistema A y = b
     y = thomas(matriz_A, matriz_b)
 
-    return soporte, y
+    return soporte, y.tolist()
