@@ -27,7 +27,7 @@ x_3, y_3 = edo2(p, q, f, h_3, 1, 6, 1, 0)
 label = 'h=10**-' + str(1)
 
 # Graficacion de los resultados obtenidos
-label = 'exacta'
+label = 'Exacta'
 plt.plot(x, y, label=label)
 plt.legend()
 plt.pause(2)
