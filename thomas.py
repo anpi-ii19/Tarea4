@@ -50,12 +50,15 @@ def thomas(A, b):
     # Calculo del vector x
 
     # Caso especial i = n
-    x.append([q[n - 1]])
+    x.append([q.pop()])
 
     # Calculo de los xi restantes
     for i in range(2, n + 1):
         # Se recoren las listas p y q en orden descendente
-        xi = q[-i] - p[-1] * x[-i + 1][0]
+        q_i = q.pop()
+        p_i = p.pop()
+        x_i1 = x[-i + 1][0]
+        xi = q_i - p_i * x_i1
         x.insert(0, [xi])
 
     return np.matrix(x)
