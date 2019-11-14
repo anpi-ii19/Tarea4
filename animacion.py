@@ -1,15 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from math import sin, sqrt
 from edo2 import edo2
 
 
 # Calculo de la solucion exacta del problema
-x = np.linspace(1, 6, 100)
-y = []
-for xi in x:
-    yi = sin(6 - xi) / sin(5) * sqrt(xi)
-    y.append(yi)
+x = np.arange(1, 6, 0.001)
+y = np.sin(6 - x) / (np.sin(5) * np.sqrt(x))
 
 p = '-1 / x'
 q = '(1 / (4 * x ** 2)) - 1'
